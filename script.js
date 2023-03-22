@@ -55,7 +55,14 @@ var verwerkBotsing = function() {
  * Tekent spelscherm
  */
 var tekenAlles = function() {
-  // achtergrond
+// achtergrond
+background(167, 231, 254);
+// The ground
+fill(194, 178, 128);
+rect(0, 550, 1300, 400); 
+// The sun
+fill(240, 206, 36);
+ellipse(120, 150, 200, 200);  
 
   // vijand
 

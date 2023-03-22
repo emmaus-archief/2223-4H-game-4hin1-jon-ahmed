@@ -19,9 +19,9 @@ https://emmauscollege.github.io/informatica/game/
         http://www.iconarchive.com/show/android-lollipop-icons-by-dtafalonso/Play-Games-icon.html
 - ...
   ## basis :
-1. popetje maken piraat, rode kleding met nike tech. abibas slippers
-2. landschap, zee en eilanden
-3. lijn waar die op loopt
+1. popetje maken piraat, rode kleding met nike tech. abibas slippers blijft vierkant
+2. landschap, zee en eilanden later
+3. lijn waar die op loopt, poppetje ook laten lopen
 4. timer maken, 30 seconde vandaf eerste beweging
 5. 1 hartje per spel
 6. schatkisten verzamelen voor punten op het einde. deze punten kan je wapens van kopen voor de andere piraten
@@ -32,3 +32,4 @@ https://emmauscollege.github.io/informatica/game/
  ## andere levels:
  1. vijanden maken
  2. meer obstakels creeren
+    
