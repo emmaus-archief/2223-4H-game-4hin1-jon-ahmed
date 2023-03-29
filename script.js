@@ -15,6 +15,8 @@
 /* ********************************************* */
 /* globale variabelen die je gebruikt in je game */
 /* ********************************************* */
+
+
 const SPELEN = 1;
 const GAMEOVER = 2;
 var spelStatus = SPELEN;
@@ -22,8 +24,11 @@ var spelStatus = SPELEN;
 var spelerX = 600; // x-positie van speler
 var spelerY = 600; // y-positie van speler
 
-var toetsRechtsIngedruktNu = false;
-var toetsRechtsIngedruktVorige = false;
+var spelerSpringt = false;
+var springSnelheid = 0;
+var springSnelheidStart = 10;
+var zwaartekracht = 0.5;
+
 /* ********************************************* */
 /* functies die je gebruikt in je game           */
 /* ********************************************* */
@@ -33,17 +38,18 @@ var toetsRechtsIngedruktVorige = false;
  */
 var beweegAlles = function() {
   // speler
-  toetsRechtsIngedruktVorige = toetsRechtsIngedruktNu;
-toetsRechtsIngedruktNu= (keyIsDown(RIGHT_ARROW));
-  if (toetsRechtsIngedruktVorige == false && toetsRechtsIngedruktNu === true) {
-  spelerX = spelerX + 3;
-  
+if (keyIsDown(37)) {
+  spelerX = spelerX -2;
 }
-  if(keyIsDown(LEFT_ARROW)) {
-spelerX = spelerX - 3;
-  }
-  
 
+  if (keyIsDown(39)) {
+spelerX = spelerX +2;
+  }
+
+  if (keyIsDown(32)) { 
+    spelerY = spelerY -1; }
+if (spelerY > 610) {
+  }
   // vijand
 
   // kogel
