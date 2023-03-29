@@ -18,19 +18,12 @@
 const SPELEN = 1;
 const GAMEOVER = 2;
 var spelStatus = SPELEN;
-const KEY_LEFT = 37;
-const KEY_RIGHT = 39;
-const KEY_UP = 38;
-const KEY_DOWN = 40;
-const KEY_SPACE = 32;
 
 var spelerX = 600; // x-positie van speler
 var spelerY = 600; // y-positie van speler
 
-var spelerSpringt = false;
-var springSnelheid= 2;
-var springSnelheidStart = 6;
-var zwaartekracht = 0.22;
+var toetsRechtsIngedruktNu = false;
+var toetsRechtsIngedruktVorige = false;
 /* ********************************************* */
 /* functies die je gebruikt in je game           */
 /* ********************************************* */
@@ -40,12 +33,17 @@ var zwaartekracht = 0.22;
  */
 var beweegAlles = function() {
   // speler
-if (keyIsDown(37)) {
-  spelerX = spelerX -2;
-  if (keyIsDown(39))
-    spelerX = spelerX +2;
+  toetsRechtsIngedruktVorige = toetsRechtsIngedruktNu;
+toetsRechtsIngedruktNu= (keyIsDown(RIGHT_ARROW));
+  if (toetsRechtsIngedruktVorige == false && toetsRechtsIngedruktNu === true) {
+  spelerX = spelerX + 3;
   
 }
+  if(keyIsDown(LEFT_ARROW)) {
+spelerX = spelerX - 3;
+  }
+  
+
   // vijand
 
   // kogel
