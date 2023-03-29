@@ -38,17 +38,21 @@ var zwaartekracht = 0.5;
  */
 var beweegAlles = function() {
   // speler
-if (keyIsDown(37)) {
-  spelerX = spelerX -2;
-}
-
-  if (keyIsDown(39)) {
-spelerX = spelerX +2;
+  if (keyIsDown(37)) {
+    spelerX = spelerX -2;
   }
 
-  if (keyIsDown(32)) { 
+  if (keyIsDown(39)) {
+    spelerX = spelerX +2;
+  }
+
+  if (keyIsDown(32) === true) { 
     spelerY = spelerY -1; }
-if (spelerY > 610) {
+  if (keyIsDown(32) === false) {
+     spelerY = spelerY +1; 
+  }
+  if (spelerY > 610) {
+    spelerY = 610;
   }
   // vijand
 
