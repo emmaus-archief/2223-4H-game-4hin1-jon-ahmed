@@ -25,9 +25,10 @@ var spelerX = 600; // x-positie van speler
 var spelerY = 600; // y-positie van speler
 
 var spelerSpringt = false;
+var spelerValt = false;
 var springSnelheid = 0;
-var springSnelheidStart = 10;
-var zwaartekracht = 0.5;
+var springSnelheidStart = 15;
+var zwaartekracht = 5;
 
 /* ********************************************* */
 /* functies die je gebruikt in je game           */
@@ -38,21 +39,31 @@ var zwaartekracht = 0.5;
  */
 var beweegAlles = function() {
   // speler
-  if (keyIsDown(37)) {
+  if (keyIsDown(37)) { // speler naar links
     spelerX = spelerX -2;
   }
 
-  if (keyIsDown(39)) {
+  if (keyIsDown(39)) { // speler naar rechts
     spelerX = spelerX +2;
   }
 
-  if (keyIsDown(32) === true) { 
-    spelerY = spelerY -1; }
-  if (keyIsDown(32) === false) {
+  if (keyIsDown(32) === true && spelerSpringt === false && spelerValt === false) {  // start sprong
+    spelerSpringt = true;
+    spelerY = spelerY -1; 
+  }
+  if (spelerSpringt === true) { // bezig met spring
+     spelerY = spelerY -1; 
+  }
+  if (spelerY < 500 && spelerSpringt === true ) { // begin met vallen
+    spelerSpringt = false;
+    spelerValt = true;
+  }
+  if (spelerValt == true) { // bezig met vallen
      spelerY = spelerY +1; 
   }
-  if (spelerY > 610) {
-    spelerY = 610;
+  if (spelerY > 550 && spelerValt === true) { // klaar met vallen
+    spelerValt = false;
+    spelerY = 600;
   }
   // vijand
 
