@@ -10,8 +10,7 @@
  * instellingen om foutcontrole van je code beter te maken 
  */
 ///<reference path="p5.global-mode.d.ts" />
-"use strict"
-
+"use strict"a
 /* ********************************************* */
 /* globale variabelen die je gebruikt in je game */
 /* ********************************************* */
@@ -29,6 +28,8 @@ var spelerValt = false;
 var springSnelheid = 0;
 var springSnelheidStart = 15;
 var zwaartekracht = 5;
+
+var img;
 
 /* ********************************************* */
 /* functies die je gebruikt in je game           */
@@ -131,7 +132,9 @@ var checkGameOver = function() {
 /* ********************************************* */
 /* setup() en draw() functies / hoofdprogramma   */
 /* ********************************************* */
-
+function preload() {
+  img = loadImage('assets/laDefense.jpg');
+}
 /**
  * setup
  * de code in deze functie wordt één keer uitgevoerd door
