@@ -10,7 +10,7 @@
  * instellingen om foutcontrole van je code beter te maken 
  */
 ///<reference path="p5.global-mode.d.ts" />
-"use strict"a
+"use strict"
 /* ********************************************* */
 /* globale variabelen die je gebruikt in je game */
 /* ********************************************* */
@@ -22,12 +22,13 @@ var spelStatus = SPELEN;
 
 var spelerX = 0; // x-positie van speler
 var spelerY = 550; // y-positie van speler
+var img1;  //plaatje
 
 var spelerSpringt = false;
 var spelerValt = false;
-var springSnelheid = 0;
-var springSnelheidStart = 25;
-var zwaartekracht = 15;
+var springSnelheid = 2;
+var springSnelheidStart = 8;
+var zwaartekracht = 0.22;
 
 var img;
 
@@ -53,16 +54,16 @@ var beweegAlles = function() {
     spelerY = spelerY -1; 
   }
   if (spelerSpringt === true) { // bezig met spring
-     spelerY = spelerY -1; 
+     spelerY = spelerY -4; 
   }
   if (spelerY < 450 && spelerSpringt === true ) { // begin met vallen
     spelerSpringt = false;
     spelerValt = true;
   }
   if (spelerValt == true) { // bezig met vallen
-     spelerY = spelerY +1; 
+     spelerY = spelerY +4; 
   }
-  if (spelerY > 500 && spelerValt === true) { // klaar met vallen
+  if (spelerY > 550 && spelerValt === true) { // klaar met vallen
     spelerValt = false;
     spelerY = 550;
   }
@@ -89,17 +90,17 @@ var verwerkBotsing = function() {
  * Tekent spelscherm
  */
 var tekenAlles = function() {
-var rightX = 800;  
-// achtergrond
-background(167, 231, 254);
-// The ground
-fill(246,215,176);
-rect(0, 550, 1300, 400); 
+  var rightX = 800;  
+  // achtergrond
+  background(167, 231, 254);
+  // The ground
+  fill(246,215,176);
+  rect(0, 550, 1300, 400); 
 
-// The sun
-fill(240, 206, 36);
-ellipse(120, 150, 160, 160);  
-//the Cloud
+  // The sun
+  fill(240, 206, 36);
+  ellipse(120, 150, 160, 160);  
+  //the Cloud
   fill(255, 255, 255)
   noStroke ()
   ellipse(rightX, 150, 180, 180);
@@ -111,11 +112,8 @@ ellipse(120, 150, 160, 160);
   // kogel
 
   // speler
-  fill("white");
-  rect(spelerX - 25, spelerY - 25, 50, 50);
-  fill("black");
-  ellipse(spelerX, spelerY, 10, 10);
-
+ 
+  image(img1, spelerX - 30, spelerY -30, 70, 70);
   // punten en health
 
 };
@@ -132,14 +130,17 @@ var checkGameOver = function() {
 /* ********************************************* */
 /* setup() en draw() functies / hoofdprogramma   */
 /* ********************************************* */
-function preload() {
-  img = loadImage('assets/laDefense.jpg');
-}
+
 /**
  * setup
  * de code in deze functie wordt één keer uitgevoerd door
  * de p5 library, zodra het spel geladen is in de browser
  */
+
+
+function preload() {
+  img1 = loadImage('3zi.png')
+}
 function setup() {
   // Maak een canvas (rechthoek) waarin je je speelveld kunt tekenen
   createCanvas(1280, 720);
