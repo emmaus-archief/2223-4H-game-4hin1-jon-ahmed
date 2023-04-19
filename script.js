@@ -22,7 +22,10 @@ var spelStatus = SPELEN;
 
 var spelerX = 0; // x-positie van speler
 var spelerY = 550; // y-positie van speler
+var vijandX = 650; // x-positie vijand
+var vijandY = 550; // y-positie vijand
 var img1;  //plaatje
+var img2; //plaatje
 
 var spelerSpringt = false;
 var spelerValt = false;
@@ -108,7 +111,7 @@ var tekenAlles = function() {
   ellipse(rightX-80, 140, 120, 120)
 
   // vijand
-
+image(img2, vijandX - 30, spelerY -10, 70, 70)
   // kogel
 
   // speler
@@ -140,6 +143,7 @@ var checkGameOver = function() {
 
 function preload() {
   img1 = loadImage('3zi.png')
+  img2 = loadImage('boompje-removebg-preview.png')
 }
 function setup() {
   // Maak een canvas (rechthoek) waarin je je speelveld kunt tekenen
