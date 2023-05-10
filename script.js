@@ -24,8 +24,11 @@ var spelerX = 0; // x-positie van speler
 var spelerY = 550; // y-positie van speler
 var vijandX = 650; // x-positie vijand
 var vijandY = 550; // y-positie vijand
+var objectX = 700; // x-positie object
+var objectY = 750; // y-positie object
 var img1;  //plaatje
 var img2; //plaatje
+var img3; //plaatje
 
 var spelerSpringt = false;
 var spelerValt = false;
@@ -83,6 +86,8 @@ var beweegAlles = function() {
 var verwerkBotsing = function() {
   // botsing speler tegen vijand
 
+
+
   // botsing kogel tegen vijand
 
   // update punten en health
@@ -111,12 +116,14 @@ var tekenAlles = function() {
   ellipse(rightX-80, 140, 120, 120)
 
   // vijand
-image(img2, vijandX - 30, spelerY -10, 70, 70)
+image(img2, vijandX - 30, vijandY -70, 120, 100);
   // kogel
+  //obstakel
+  
+  
 
   // speler
- 
-  image(img1, spelerX - 30, spelerY -30, 70, 70);
+  image(img1, spelerX - 30, spelerY -60, 70, 70);
   // punten en health
 
 };
@@ -144,6 +151,8 @@ var checkGameOver = function() {
 function preload() {
   img1 = loadImage('3zi.png')
   img2 = loadImage('boompje-removebg-preview.png')
+  img3 = loadimage('Pixel_dugeon_logo.png')
+  
 }
 function setup() {
   // Maak een canvas (rechthoek) waarin je je speelveld kunt tekenen
