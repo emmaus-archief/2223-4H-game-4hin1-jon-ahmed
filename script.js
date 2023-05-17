@@ -29,6 +29,7 @@ var objectY = 750; // y-positie object
 var img1;  //plaatje
 var img2; //plaatje
 var img3; //plaatje
+var img4; //plaatje
 
 var spelerSpringt = false;
 var spelerValt = false;
@@ -50,19 +51,19 @@ var beweegAlles = function() {
   if (keyIsDown(37)) { // speler naar links
     spelerX = spelerX -2;
   }
-
+  
   if (keyIsDown(39)) { // speler naar rechts
-    spelerX = spelerX +2;
+   spelerX = spelerX +2;
   }
 
   if (keyIsDown(32) === true && spelerSpringt === false && spelerValt === false) {  // start sprong
     spelerSpringt = true;
-    spelerY = spelerY -1; 
+    spelerY = spelerY -4; 
   }
   if (spelerSpringt === true) { // bezig met spring
      spelerY = spelerY -4; 
   }
-  if (spelerY < 450 && spelerSpringt === true ) { // begin met vallen
+  if (spelerY < 375 && spelerSpringt === true ) { // begin met vallen
     spelerSpringt = false;
     spelerValt = true;
   }
@@ -116,7 +117,7 @@ var tekenAlles = function() {
   ellipse(rightX-80, 140, 120, 120)
 
   // vijand
-image(img2, vijandX - 30, vijandY -70, 120, 100);
+image(img2, vijandX - 30, vijandY -70, 120, 100); 
   // kogel
   //obstakel
   
@@ -152,7 +153,7 @@ function preload() {
   img1 = loadImage('3zi.png')
   img2 = loadImage('boompje-removebg-preview.png')
   img3 = loadimage('Pixel_dugeon_logo.png')
-  
+  img4 = loadimage('schatkist.jpeg')
 }
 function setup() {
   // Maak een canvas (rechthoek) waarin je je speelveld kunt tekenen
