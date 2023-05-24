@@ -24,17 +24,19 @@ var spelerX = 0; // x-positie van speler
 var spelerY = 550; // y-positie van speler
 var vijandX = 650; // x-positie vijand
 var vijandY = 550; // y-positie vijand
-var objectX = 700; // x-positie object
-var objectY = 750; // y-positie object
+var objectX = 1200; // x-positie object
+var objectY = 550; // y-positie object
+var HP;
 var img1;  //plaatje
 var img2; //plaatje
 var img3; //plaatje
 
 var spelerSpringt = false;
 var spelerValt = false;
-var springSnelheid = 2;
+var springSnelheid = 4;
 var springSnelheidStart = 8;
 var zwaartekracht = 0.22;
+
 
 var img;
 
@@ -62,7 +64,7 @@ var beweegAlles = function() {
   if (spelerSpringt === true) { // bezig met spring
      spelerY = spelerY -4; 
   }
-  if (spelerY < 450 && spelerSpringt === true ) { // begin met vallen
+  if (spelerY < 420 && spelerSpringt === true ) { // begin met vallen
     spelerSpringt = false;
     spelerValt = true;
   }
@@ -86,10 +88,11 @@ var beweegAlles = function() {
 var verwerkBotsing = function() {
   // botsing speler tegen vijand
   if (spelerX - vijandX < 30 &&
-      spelerX - vijandX >-40 &&
-      spelerY - vijandY <40 &&
-      spelerY - vijandY > -40) {
+      spelerX - vijandX >-30 &&
+      spelerY - vijandY <30 &&
+      spelerY - vijandY > -30) {
     console.log("botsing");
+    HP=HP-1;
      }
 
 
@@ -125,7 +128,7 @@ var tekenAlles = function() {
 image(img2, vijandX - 30, vijandY -70, 120, 100);
   // kogel
   //obstakel
-  
+  image(img3, objectX - 50, objectY -70, 120, 100);
   
 
   // speler
@@ -140,6 +143,9 @@ image(img2, vijandX - 30, vijandY -70, 120, 100);
  */
 var checkGameOver = function() {
   // check of HP 0 is , of tijd op is, of ...
+  if (HP <= 0) {
+    return true;
+  }
   return false;
 };
 
@@ -157,7 +163,7 @@ var checkGameOver = function() {
 function preload() {
   img1 = loadImage('3zi.png')
   img2 = loadImage('boompje-removebg-preview.png')
-  img3 = loadimage('Pixel_dugeon_logo.png')
+  img3 = loadImage('schatkist.jpeg')
   
 }
 function setup() {
@@ -184,6 +190,5 @@ function draw() {
   }
   if (spelStatus === GAMEOVER) {
     // teken game-over scherm
-
   }
 }
