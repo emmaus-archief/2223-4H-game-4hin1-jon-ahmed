@@ -18,6 +18,7 @@
 
 const SPELEN = 1;
 const GAMEOVER = 2;
+const KeyIsPressed = 10;
 var spelStatus = SPELEN;
 
 var spelerX = 0; // x-positie van speler
@@ -26,7 +27,7 @@ var vijandX = 650; // x-positie vijand
 var vijandY = 550; // y-positie vijand
 var objectX = 1200; // x-positie object
 var objectY = 550; // y-positie object
-var HP;
+var HP = 100;
 var img1;  //plaatje
 var img2; //plaatje
 var img3; //plaatje
@@ -86,6 +87,13 @@ var beweegAlles = function() {
  * Updatet globale variabelen punten en health
  */
 var verwerkBotsing = function() {
+  if (spelerX - objectX < 30 &&
+      spelerX - objectX >-30 &&
+      spelerY - objectY <30 &&
+      spelerY - objectY > -30) {
+    HP = HP -1;
+    console.log("botsing");
+     }
   // botsing speler tegen vijand
   if (spelerX - vijandX < 30 &&
       spelerX - vijandX >-30 &&
@@ -195,5 +203,13 @@ function draw() {
   }
   if (spelStatus === GAMEOVER) {
     // teken game-over scherm
+    text("game over", 200,200);
+  
+   if ( KeyIsPressed = SPELEN) {
+      spelStatus = SPELEN;
+      spelerX = 0;
+      spelerY = 500;
+      HP = 100;
+   }
   }
 }
