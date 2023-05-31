@@ -94,8 +94,13 @@ var verwerkBotsing = function() {
     console.log("botsing");
     HP=HP-1;
      }
-
-
+// botsing speler tegen checkpoint
+  if (spelerX - objectX < 30 &&
+      spelerX - objectX >-30 &&
+      spelerY - objectY <30 &&
+      spelerY - objectY > -30) {
+    console.log("botsing");
+     }
 
   // botsing kogel tegen vijand
 
