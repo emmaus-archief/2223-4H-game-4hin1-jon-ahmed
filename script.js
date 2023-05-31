@@ -27,7 +27,7 @@ var vijandX = 650; // x-positie vijand
 var vijandY = 550; // y-positie vijand
 var objectX = 1200; // x-positie object
 var objectY = 550; // y-positie object
-var HP = 100;
+var HP = 25;
 var img1;  //plaatje
 var img2; //plaatje
 var img3; //plaatje
@@ -209,7 +209,7 @@ function draw() {
       spelStatus = SPELEN;
       spelerX = 0;
       spelerY = 500;
-      HP = 100;
+      HP = 25;
    }
   }
 }
