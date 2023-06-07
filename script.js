@@ -20,6 +20,7 @@ const SPELEN = 1;
 const GAMEOVER = 2;
 const KeyIsPressed = 10;
 var spelStatus = SPELEN;
+var spelStatus = UITLEG;
 
 var spelerX = 0; // x-positie van speler
 var spelerY = 550; // y-positie van speler
@@ -203,9 +204,13 @@ function draw() {
   }
   if (spelStatus === GAMEOVER) {
     // teken game-over scherm
-    text("game over", 200,200);
-  
-   if ( KeyIsPressed = SPELEN) {
+    text("game over", 600,400);
+    text('Font Size 12', 10, 30);
+  }
+  if (spelStatus === UITLEG) {
+    createCanvas
+  }  
+   if ( keyIsDown(32)) { //spatie
       spelStatus = SPELEN;
       spelerX = 0;
       spelerY = 500;
@@ -213,3 +218,20 @@ function draw() {
    }
   }
 }
+
+# grotere letters?
+# zie https://p5js.org/reference/
+# zoek op textSize
+
+# uitlegscherm?
+# video over GAMEOVERscherm
+# uitlegscherm is ongeveer hetzelfde
+# tips:
+# maak variabele bovenaan je code UITLEG
+# maak een extra if (spelStatus === UITLEG) .... in de draw functie
+# zorg dat je begint bij uitlehg
+# zorg dat je van uitleg naar spelen gaat als je enter (13) indrukt
+
+
+# winscherm?
+# ongeveer hetzelfde als een uitlegscherm
