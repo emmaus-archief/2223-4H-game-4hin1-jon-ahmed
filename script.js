@@ -15,14 +15,15 @@
 /* globale variabelen die je gebruikt in je game */
 /* ********************************************* */
 
-
+const KEY_SPACE = 32;
 const SPELEN = 1;
 const GAMEOVER = 2;
+const UITLEG = 8;
 const KeyIsPressed = 10;
 var spelStatus = SPELEN;
 var spelStatus = UITLEG;
 
-var spelerX = 0; // x-positie van speler
+var spelerX = 100; // x-positie van speler
 var spelerY = 550; // y-positie van speler
 var vijandX = 650; // x-positie vijand
 var vijandY = 550; // y-positie vijand
@@ -201,37 +202,35 @@ function draw() {
     if (checkGameOver()) {
       spelStatus = GAMEOVER;
     }
+    console.log("spelen");
   }
   if (spelStatus === GAMEOVER) {
     // teken game-over scherm
-    text("game over", 600,400);
-    text('Font Size 12', 10, 30);
+     console.log("game over");
+    textSize(50);
+    fill("white");
+    text("Gameover, druk op spatie voor nieuw spel", 300, 300);
+    if(KeyIsDown(32)) { // spatie
+      SpelStatus = UITLEG;
+    }
+   
   }
   if (spelStatus === UITLEG) {
-    createCanvas
-  }  
-   if ( keyIsDown(32)) { //spatie
+    // teken uitleg scherm
+    console.log("uitleg");
+    textSize(50);
+    fill("darkblue");
+    rect(0,0, 1280, 720);
+    fill("white");
+    text("Druk op enter om het spel te starten", 300, 300);
+    if (keyIsDown(13)) { // enter
+      spelerX = 100;
       spelStatus = SPELEN;
-      spelerX = 0;
-      spelerY = 500;
-      HP = 25;
-   }
-  }
+      
+    }
+  
+  }  
+  
+  
 }
 
-# grotere letters?
-# zie https://p5js.org/reference/
-# zoek op textSize
-
-# uitlegscherm?
-# video over GAMEOVERscherm
-# uitlegscherm is ongeveer hetzelfde
-# tips:
-# maak variabele bovenaan je code UITLEG
-# maak een extra if (spelStatus === UITLEG) .... in de draw functie
-# zorg dat je begint bij uitlehg
-# zorg dat je van uitleg naar spelen gaat als je enter (13) indrukt
-
-
-# winscherm?
-# ongeveer hetzelfde als een uitlegscherm
