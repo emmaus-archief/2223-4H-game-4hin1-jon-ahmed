@@ -231,24 +231,12 @@ function draw() {
     }
   
   }  
-  if (spelStatus === GEWONNEN) {
-    //teken win scherm
-    console.log("gewonnen");
-    textSize(50);
-    fill("white")
-    rect(0,0, 1280, 720);
-    fill("black");
-    text("je hebt de schatkist gevonden!", 300, 300);
-    if (keyIsDown(13)) {//enter
-      spelerX = 100;
-      spelStatus = UITLEG;
-      
-    }
+
+    
     
     
   }
     
-  ]
   
 }
 
