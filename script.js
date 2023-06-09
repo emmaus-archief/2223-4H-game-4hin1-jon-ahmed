@@ -19,11 +19,9 @@ const KEY_SPACE = 32;
 const SPELEN = 1;
 const GAMEOVER = 2;
 const UITLEG = 8;
-const GEWONNEN = 7;
 const KeyIsPressed = 10;
 var spelStatus = SPELEN;
 var spelStatus = UITLEG;
-var spelStatus = GEWONNEN;
 
 var spelerX = 100; // x-positie van speler
 var spelerY = 550; // y-positie van speler
@@ -213,7 +211,9 @@ function draw() {
     fill("white");
     text("Gameover, druk op spatie voor nieuw spel", 300, 300);
     if (keyIsDown(32)) { // spatie
-      SpelStatus = UITLEG;
+      spelerX= 100;
+      HP = 30;
+      spelStatus = SPELEN;
     }
    
   }
@@ -221,6 +221,7 @@ function draw() {
     // teken uitleg scherm
     console.log("uitleg");
     textSize(50);
+    textFont('Georgia');
     fill("darkblue");
     rect(0,0, 1280, 720);
     fill("white");
@@ -231,12 +232,6 @@ function draw() {
     }
   
   }  
-
-    
-    
-    
-  }
-    
+  
   
 }
-
