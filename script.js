@@ -19,9 +19,10 @@ const KEY_SPACE = 32;
 const SPELEN = 1;
 const GAMEOVER = 2;
 const UITLEG = 8;
-const KeyIsPressed = 10;
-var spelStatus = SPELEN;
+const KeyIsPressed = 10; //??
+const GEWONNEN = 9;
 var spelStatus = UITLEG;
+
 
 var spelerX = 100; // x-positie van speler
 var spelerY = 550; // y-positie van speler
@@ -29,7 +30,7 @@ var vijandX = 650; // x-positie vijand
 var vijandY = 550; // y-positie vijand
 var objectX = 1200; // x-positie object
 var objectY = 550; // y-positie object
-var HP = 25;
+var HP = 20;
 var img1;  //plaatje
 var img2; //plaatje
 var img3; //plaatje
@@ -55,7 +56,7 @@ var beweegAlles = function() {
   if (keyIsDown(37)) { // speler naar links
     spelerX = spelerX -2;
   }
-
+  
   if (keyIsDown(39)) { // speler naar rechts
     spelerX = spelerX +2;
   }
@@ -109,7 +110,8 @@ var verwerkBotsing = function() {
       spelerX - objectX >-30 &&
       spelerY - objectY <30 &&
       spelerY - objectY > -30) {
-    console.log("botsing");
+    console.log("gewonnen");
+    spelStatus=GEWONNEN;
      }
 
   // botsing kogel tegen vijand
@@ -133,19 +135,17 @@ var tekenAlles = function() {
   fill(240, 206, 36);
   ellipse(120, 150, 160, 160);  
   //the Cloud
-  fill(255, 255, 255)
+  fill(255, 255, 255);
   noStroke ()
   ellipse(rightX, 150, 180, 180);
   ellipse(rightX+80, 150, 130, 130);
-  ellipse(rightX-80, 140, 120, 120)
+  ellipse(rightX-80, 140, 120, 120);
 
   // vijand
 image(img2, vijandX - 30, vijandY -70, 120, 100);
   // kogel
   //obstakel
   image(img3, objectX - 50, objectY -70, 120, 100);
-  
-
   // speler
   image(img1, spelerX - 30, spelerY -60, 70, 70);
   // punten en health
@@ -173,6 +173,7 @@ var checkGameOver = function() {
  * de code in deze functie wordt één keer uitgevoerd door
  * de p5 library, zodra het spel geladen is in de browser
  */
+
 
 
 function preload() {
@@ -209,10 +210,10 @@ function draw() {
      console.log("game over");
     textSize(50);
     fill("white");
-    text("Gameover, druk op spatie voor nieuw spel", 300, 300);
+    text("Game-over, druk op spatie voor nieuw spel!", 300, 300);
     if (keyIsDown(32)) { // spatie
       spelerX= 100;
-      HP = 30;
+      HP = 20;
       spelStatus = SPELEN;
     }
    
@@ -230,8 +231,21 @@ function draw() {
       spelerX = 100;
       spelStatus = SPELEN;
     }
+  }
+    if (spelStatus === GEWONNEN) {
+      //tekent eindscherm
+      console.log("eindscherm");
+      textSize(40);
+      textFont('Georgia');
+      fill("darkblue");
+      rect(0,0, 1280, 720);
+      fill("grey");
+      text("Je hebt gewonnen!", 300, 300);
+      if (keIsDown(13)) { //enter
+        spelStatus = GEWONNEN;
+      }
+    }
   
+    
   }  
   
-  
-}
