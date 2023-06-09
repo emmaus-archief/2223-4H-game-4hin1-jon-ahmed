@@ -19,9 +19,11 @@ const KEY_SPACE = 32;
 const SPELEN = 1;
 const GAMEOVER = 2;
 const UITLEG = 8;
+const GEWONNEN = 7;
 const KeyIsPressed = 10;
 var spelStatus = SPELEN;
 var spelStatus = UITLEG;
+var spelStatus = GEWONNEN;
 
 var spelerX = 100; // x-positie van speler
 var spelerY = 550; // y-positie van speler
@@ -210,7 +212,7 @@ function draw() {
     textSize(50);
     fill("white");
     text("Gameover, druk op spatie voor nieuw spel", 300, 300);
-    if(KeyIsDown(32)) { // spatie
+    if (keyIsDown(32)) { // spatie
       SpelStatus = UITLEG;
     }
    
@@ -226,11 +228,27 @@ function draw() {
     if (keyIsDown(13)) { // enter
       spelerX = 100;
       spelStatus = SPELEN;
-      
     }
   
   }  
-  
+  if (spelStatus === GEWONNEN) {
+    //teken win scherm
+    console.log("gewonnen");
+    textSize(50);
+    fill("white")
+    rect(0,0, 1280, 720);
+    fill("black");
+    text("je hebt de schatkist gevonden!", 300, 300);
+    if (keyIsDown(13)) {//enter
+      spelerX = 100;
+      spelStatus = UITLEG;
+      
+    }
+    
+    
+  }
+    
+  ]
   
 }
 
